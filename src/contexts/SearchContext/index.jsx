@@ -13,6 +13,7 @@ function SearchProvider({ children }) {
   const [priceProduct, setPriceProduct] = useState("");
   const [descriptionProduct, setDescriptionProduct] = useState("");
   const [rateProduct, setRateProduct] = useState("");
+  const [priceSortOrder, setPriceSortOrder] = useState("Default");
 
   const getData = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -39,12 +40,31 @@ function SearchProvider({ children }) {
     return productName.includes(searchText);
   });
 
+  function sortProductsByPrice(products) {
+
+    const compareFunction = (a, b) => {
+      switch (priceSortOrder) {
+        case 'Price_High':
+          return b.price - a.price;
+        case 'Price_Low':
+          return a.price - b.price;
+        default:
+          return 0;
+      }
+    };
+    products.sort(compareFunction);
+
+    return products;
+  }
+
+  const filteredProducts = sortProductsByPrice(searchedProducts)
+
   return (
     <SearchContext.Provider
       value={{
         searchValue,
         setSearchValue,
-        searchedProducts,
+        filteredProducts,
         isLoading,
         isOpen,
         setIsOpen,
@@ -58,6 +78,7 @@ function SearchProvider({ children }) {
         setDescriptionProduct,
         setRateProduct,
         rateProduct,
+        setPriceSortOrder
       }}
     >
       {children}

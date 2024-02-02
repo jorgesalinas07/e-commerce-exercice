@@ -6,10 +6,10 @@ import './ResultTable.css'
 
 function ResultTable () {
     const {
-        searchedProducts,
+        filteredProducts,
         isLoading,
         isOpen,
-      } = useContext(SearchContext);
+    } = useContext(SearchContext);
     return (
         <div className='ResultContainer'>
             <h2>Results:</h2>
@@ -17,7 +17,7 @@ function ResultTable () {
                 {   isLoading ?
                     <span className="loader"></span>
                     :
-                    searchedProducts.map((product, index) =>
+                    filteredProducts.map((product, index) =>
                         <Card
                             key={index}
                             image = {product.image}
