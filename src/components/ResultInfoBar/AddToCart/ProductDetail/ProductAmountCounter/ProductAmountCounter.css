@@ -1,0 +1,27 @@
+.AddToCartProductAmountCounterContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    width: 120px;
+    margin-top: -18px;
+}
+
+.reduceAmount {
+    color: grey;
+    height: 30px;
+    width: 30px;
+}
+
+.incrementAmount {
+    color: grey;
+    height: 30px;
+    width: 30px;
+}
+
+.AddToCartProductAmountCounterContainer strong {
+    color: grey;
+    font-size: 25px;
+}
