@@ -7,6 +7,14 @@
   display: grid;
   grid-template-areas: "filter results";
   grid-template-columns: 15% auto;
-  column-gap: 70px;
+  column-gap: 120px;
   padding: 30px 35px;
+}
+
+.ResultsContainer{
+  flex: 1;
+}
+
+.GeneralContainer {
+  display: flex;
 }

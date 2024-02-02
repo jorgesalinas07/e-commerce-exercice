@@ -12,6 +12,11 @@
     margin-top: 3%;
 }
 
+.ResultContainer .CardResultsContainer.customStyle {
+    grid-template-columns: auto auto;
+  }
+
+
 .loader {
     width: 100px;
     height: 100px;

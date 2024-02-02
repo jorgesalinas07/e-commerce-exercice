@@ -1,0 +1,22 @@
+.AddToCartContainer {
+    border-left: solid 1px #7E7E7E;
+    width: 280px;
+    height: 4900px;
+}
+
+.AddToCartContainer .CartTotalDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px #7E7E7E;
+    padding: 4%;
+    align-items: center;
+}
+
+.AddToCartContainer .CartTotalDetailsContainer strong {
+    margin-top: -17px;
+    color: rgb(246, 15, 15);
+}
+
+.AddToCartContainer .CartTotalDetailsContainer Button {
+    background-color: rgba(0, 232, 94, 255);
+}

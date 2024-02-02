@@ -14,10 +14,16 @@ function Modal () {
         priceProduct,
         descriptionProduct,
         rateProduct,
+        setIsAddToCartOpen,
     } = useContext(SearchContext);
 
     const setCloseModal = () => {
         setIsOpen(false)
+    }
+
+    const handleAddToCart = () => {
+        setCloseModal()
+        setIsAddToCartOpen(true)
     }
 
     return (
@@ -35,7 +41,7 @@ function Modal () {
                     <Rating stars={rateProduct}/>
                     <h6 className='DetailModalDescription'>{descriptionProduct}</h6>
                     <div className='AddToCardModalContainer'>
-                        <Button type="primary">Add</Button>
+                        <Button type="primary" onClick={handleAddToCart}>Add</Button>
                         <div className='ModalProductAmountCounterContainer'>
                             <ModalProductAmountCounter/>
                         </div>

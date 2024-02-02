@@ -9,11 +9,12 @@ function ResultTable () {
         filteredProducts,
         isLoading,
         isOpen,
+        isAddToCartOpen
     } = useContext(SearchContext);
     return (
         <div className='ResultContainer'>
             <h2>Results:</h2>
-            <div className='CardResultsContainer'>
+            <div className={`CardResultsContainer ${isAddToCartOpen && 'customStyle'}`}>
                 {   isLoading ?
                     <span className="loader"></span>
                     :

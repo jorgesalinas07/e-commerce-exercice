@@ -1,0 +1,36 @@
+.CartProductDetailContainer .CartProductImageContainer img {
+    object-fit: contain;
+    width: 50%;
+    aspect-ratio: 4/3;
+}
+
+.CartProductDetailContainer {
+    border-bottom: solid 1px #7E7E7E;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.CartProductDetailContainer .CartProductImageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+}
+
+.CartProductDetailContainer .CartProductImageContainer .removeCartProduct {
+    position: absolute;
+    color: red;
+    right: 2%;
+    width: 25px;
+    height: 25px
+}
+
+.CartProductDetailContainer .CartProductPrice {
+    margin-top: -10px;
+}
+
+.CartProductDetailContainer .AddToCartProductAmountCounterContainer {
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
