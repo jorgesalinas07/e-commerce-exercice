@@ -17,6 +17,8 @@ function Modal () {
         setIsAddToCartOpen,
         setCartProducts,
         cartProducts,
+        productAmount,
+        setProductAmount,
     } = useContext(SearchContext);
 
     const setCloseModal = () => {
@@ -35,9 +37,11 @@ function Modal () {
                         'titleProduct': titleProduct,
                         'imageProduct': imageProduct,
                         'priceProduct': priceProduct,
+                        'productAmount': productAmount
                     }
                 ]
             })
+            setProductAmount(1)
         }
         setIsAddToCartOpen(true)
     }

@@ -5,7 +5,7 @@ import { CartProductAmountCounter } from './ProductAmountCounter';
 import PropTypes from 'prop-types';
 import './ProductDetail.css'
 
-function ProductDetail ({ productIndex, imageProduct, priceProduct}) {
+function ProductDetail ({ productIndex, imageProduct, priceProduct, productAmount}) {
     const {
         setCartProducts
     } = useContext(SearchContext)
@@ -25,7 +25,10 @@ function ProductDetail ({ productIndex, imageProduct, priceProduct}) {
             </div>
             <strong className='CartProductPrice'>${priceProduct}</strong>
             <div className='CartProductAmountContainer'>
-                <CartProductAmountCounter/>
+                <CartProductAmountCounter
+                    amount={productAmount}
+                    productIndex={productIndex}
+                />
             </div>
         </div>
     )
@@ -35,6 +38,7 @@ ProductDetail.propTypes = {
     productIndex: PropTypes.number.isRequired,
     imageProduct: PropTypes.string.isRequired,
     priceProduct: PropTypes.number.isRequired,
+    productAmount: PropTypes.number.isRequired,
 };
 
 export { ProductDetail }
