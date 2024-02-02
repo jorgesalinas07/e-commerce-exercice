@@ -1,21 +1,40 @@
+import { useContext } from 'react';
+import { SearchContext } from '../../../../contexts/SearchContext';
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { CartProductAmountCounter } from './ProductAmountCounter';
+import PropTypes from 'prop-types';
 import './ProductDetail.css'
 
-function ProductDetail () {
+function ProductDetail ({ productIndex, imageProduct, priceProduct}) {
+    const {
+        setCartProducts
+    } = useContext(SearchContext)
+
+
+    const handleRemoveFromCart = () => {
+        setCartProducts((prevCartProducts) =>
+        prevCartProducts.filter((_, index) => index !== productIndex)
+        );
+    }
 
     return (
         <div className='CartProductDetailContainer'>
             <div className="CartProductImageContainer">
-                <AiOutlineCloseCircle className='removeCartProduct'/>
-                <img src={'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'}/>
+                <AiOutlineCloseCircle className='removeCartProduct' onClick={handleRemoveFromCart}/>
+                <img src={imageProduct}/>
             </div>
-            <strong className='CartProductPrice'>$2000</strong>
+            <strong className='CartProductPrice'>${priceProduct}</strong>
             <div className='CartProductAmountContainer'>
                 <CartProductAmountCounter/>
             </div>
         </div>
     )
 }
+
+ProductDetail.propTypes = {
+    productIndex: PropTypes.number.isRequired,
+    imageProduct: PropTypes.string.isRequired,
+    priceProduct: PropTypes.number.isRequired,
+};
 
 export { ProductDetail }

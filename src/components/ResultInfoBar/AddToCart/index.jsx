@@ -9,7 +9,13 @@ import { ProductDetail } from './ProductDetail';
 function AddToCart () {
     const {
         isAddToCartOpen,
+        setIsAddToCartOpen,
+        cartProducts
     } = useContext(SearchContext);
+
+    if (!cartProducts.length) {
+        setIsAddToCartOpen(false)
+    }
 
     if (isAddToCartOpen) {
         return (
@@ -20,7 +26,15 @@ function AddToCart () {
                     <Button type="primary" contentFontSize='large'>Continue</Button>
                 </div>
                 <div className='CartProductsDetails'>
-                    <ProductDetail/>
+                    {cartProducts.map((cartProduct, index) =>
+                        <ProductDetail
+                            key={index}
+                            productIndex={index}
+                            imageProduct={cartProduct.imageProduct}
+                            priceProduct={cartProduct.priceProduct}
+                        />
+                        )
+                    }
                 </div>
             </div>
         )

@@ -15,6 +15,8 @@ function Modal () {
         descriptionProduct,
         rateProduct,
         setIsAddToCartOpen,
+        setCartProducts,
+        cartProducts,
     } = useContext(SearchContext);
 
     const setCloseModal = () => {
@@ -23,6 +25,20 @@ function Modal () {
 
     const handleAddToCart = () => {
         setCloseModal()
+        const isProductInCart = cartProducts.some(
+            cartProduct => cartProduct.titleProduct === titleProduct
+        );
+        if (!isProductInCart) {
+            setCartProducts((prevCartProduct) => {
+                return [...prevCartProduct,
+                    {
+                        'titleProduct': titleProduct,
+                        'imageProduct': imageProduct,
+                        'priceProduct': priceProduct,
+                    }
+                ]
+            })
+        }
         setIsAddToCartOpen(true)
     }
 
