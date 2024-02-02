@@ -17,13 +17,14 @@ function ResultTable () {
                 {   isLoading ?
                     <span className="loader"></span>
                     :
-                    searchedProducts.map((product, index) => 
+                    searchedProducts.map((product, index) =>
                         <Card
                             key={index}
                             image = {product.image}
                             title = {product.title}
                             price = {product.price}
                             description = {product.description}
+                            rate = {Math.round(product.rating.rate)}
                         />
                     )
                 }
