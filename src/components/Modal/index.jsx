@@ -3,6 +3,7 @@ import './Modal.css'
 import { Rating } from "../Filter/RatingFilter/Rating"
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { SearchContext } from '../../contexts/SearchContext';
+import { ModalProductAmountCounter } from './ModalProductAmountCounter';
 import { Button } from 'antd';
 
 function Modal () {
@@ -12,7 +13,7 @@ function Modal () {
         titleProduct,
         priceProduct,
         descriptionProduct,
-        rateProduct
+        rateProduct,
     } = useContext(SearchContext);
 
     const setCloseModal = () => {
@@ -28,13 +29,16 @@ function Modal () {
                 </div>
                 <div className="DetailsModalContainer">
                     <div className="HeaderDetailModalContainer">
-                        <h3>{titleProduct}</h3>
-                        <h3>${priceProduct}</h3>
+                        <strong className='title' >{titleProduct}</strong>
+                        <strong>${priceProduct}</strong>
                     </div>
                     <Rating stars={rateProduct}/>
                     <h6 className='DetailModalDescription'>{descriptionProduct}</h6>
                     <div className='AddToCardModalContainer'>
                         <Button type="primary">Add</Button>
+                        <div className='ModalProductAmountCounterContainer'>
+                            <ModalProductAmountCounter/>
+                        </div>
                     </div>
                 </div>
             </div>
