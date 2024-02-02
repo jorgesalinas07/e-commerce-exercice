@@ -17,12 +17,17 @@ function AddToCart () {
         setIsAddToCartOpen(false)
     }
 
+    const cartSubTotal = cartProducts.reduce(
+        (subTotal, cartProduct) =>
+        subTotal + (cartProduct.priceProduct * cartProduct.productAmount), 0
+    )
+
     if (isAddToCartOpen) {
         return (
             <div className="AddToCartContainer">
                 <div className='CartTotalDetailsContainer'>
                     <p>Subtotal</p>
-                    <strong>$2000</strong>
+                    <strong>${cartSubTotal.toFixed(1)}</strong>
                     <Button type="primary" contentFontSize='large'>Continue</Button>
                 </div>
                 <div className='CartProductsDetails'>
@@ -32,6 +37,7 @@ function AddToCart () {
                             productIndex={index}
                             imageProduct={cartProduct.imageProduct}
                             priceProduct={cartProduct.priceProduct}
+                            productAmount={cartProduct.productAmount}
                         />
                         )
                     }
