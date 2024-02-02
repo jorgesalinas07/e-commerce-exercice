@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import PropTypes from 'prop-types';
 
 const SearchContext = createContext();
 
@@ -11,6 +12,7 @@ function SearchProvider({ children }) {
   const [titleProduct, setTitleProduct] = useState("");
   const [priceProduct, setPriceProduct] = useState("");
   const [descriptionProduct, setDescriptionProduct] = useState("");
+  const [rateProduct, setRateProduct] = useState("");
 
   const getData = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -53,12 +55,18 @@ function SearchProvider({ children }) {
         priceProduct,
         setPriceProduct,
         descriptionProduct,
-        setDescriptionProduct
+        setDescriptionProduct,
+        setRateProduct,
+        rateProduct,
       }}
     >
       {children}
     </SearchContext.Provider>
   );
 }
+
+SearchProvider.propTypes = {
+  children: PropTypes.any.isRequired,
+};
 
 export { SearchContext, SearchProvider };
