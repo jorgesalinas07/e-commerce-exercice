@@ -3,6 +3,7 @@ import './Modal.css'
 import { Rating } from "../Filter/RatingFilter/Rating"
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { SearchContext } from '../../contexts/SearchContext';
+import { Button } from 'antd';
 
 function Modal () {
     const {
@@ -31,7 +32,10 @@ function Modal () {
                         <h3>${priceProduct}</h3>
                     </div>
                     <Rating stars={rateProduct}/>
-                    <h6>{descriptionProduct}</h6>
+                    <h6 className='DetailModalDescription'>{descriptionProduct}</h6>
+                    <div className='AddToCardModalContainer'>
+                        <Button type="primary">Add</Button>
+                    </div>
                 </div>
             </div>
         </div>
