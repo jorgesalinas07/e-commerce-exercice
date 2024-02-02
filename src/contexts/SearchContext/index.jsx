@@ -15,6 +15,7 @@ function SearchProvider({ children }) {
   const [rateProduct, setRateProduct] = useState("");
   const [priceSortOrder, setPriceSortOrder] = useState("Default");
   const [categoryFilters, setCategoryFilters] = useState([]);
+  const [rateFilter, setRateFilter] = useState(1);
 
   const getData = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -63,8 +64,13 @@ function SearchProvider({ children }) {
     return products;
   }
 
+  const filterProductsByRate = (products) =>
+    products.filter((product) => product.rating.rate.toFixed(0) >= rateFilter);
+
+
   const sortedProducts = sortProductsByPrice(searchedProducts)
-  const filteredProducts = filterProductsByCategory(sortedProducts)
+  const productsFilteredByCategory = filterProductsByCategory(sortedProducts)
+  const filteredProducts = filterProductsByRate(productsFilteredByCategory)
 
   return (
     <SearchContext.Provider
@@ -88,6 +94,7 @@ function SearchProvider({ children }) {
         setPriceSortOrder,
         categoryFilters,
         setCategoryFilters,
+        setRateFilter,
       }}
     >
       {children}
