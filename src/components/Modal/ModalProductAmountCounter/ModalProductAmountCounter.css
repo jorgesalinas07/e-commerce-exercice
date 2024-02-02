@@ -1,0 +1,26 @@
+.ProductAmountCounterContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    width: 120px;
+}
+
+.ProductAmountCounterContainer .reduceAmount {
+    color: grey;
+    height: 30px;
+    width: 30px;
+}
+
+.ProductAmountCounterContainer .incrementAmount {
+    color: white;
+    height: 30px;
+    width: 30px;
+}
+
+.ProductAmountCounterContainer p {
+    color: white;
+    font-size: 22px;
+}
